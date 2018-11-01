@@ -31,7 +31,7 @@ class DistanceApi implements DistanceContract
     }
 
     /**
-     * Get API_KEY
+     * Get API_KEY.
      *
      * @return mixed
      */
@@ -41,7 +41,7 @@ class DistanceApi implements DistanceContract
     }
 
     /**
-     * Get origins
+     * Get origins.
      *
      * @return mixed
      */
@@ -51,9 +51,10 @@ class DistanceApi implements DistanceContract
     }
 
     /**
-     * Set origins
+     * Set origins.
      *
      * @param $origins
+     *
      * @return \Pnlinh\GoogleDistance\DistanceApi
      */
     public function setOrigins($origins): self
@@ -64,7 +65,7 @@ class DistanceApi implements DistanceContract
     }
 
     /**
-     * Get destinations
+     * Get destinations.
      *
      * @return mixed
      */
@@ -74,9 +75,10 @@ class DistanceApi implements DistanceContract
     }
 
     /**
-     * Set destinations
+     * Set destinations.
      *
      * @param $destinations
+     *
      * @return \Pnlinh\GoogleDistance\DistanceApi
      */
     public function setDestinations($destinations): self
@@ -87,10 +89,11 @@ class DistanceApi implements DistanceContract
     }
 
     /**
-     * Caculate distance from origins to destinations
+     * Caculate distance from origins to destinations.
      *
      * @param $origins
      * @param $destinations
+     *
      * @return int
      */
     public function calculate($origins, $destinations): int
@@ -100,11 +103,11 @@ class DistanceApi implements DistanceContract
         try {
             $response = $client->get($this->apiUrl, [
                 'query' => [
-                    'units' => 'imperial',
-                    'origins' => $origins,
+                    'units'        => 'imperial',
+                    'origins'      => $origins,
                     'destinations' => $destinations,
-                    'key' => $this->getApiKey(),
-                    'random' => random_int(1, 100),
+                    'key'          => $this->getApiKey(),
+                    'random'       => random_int(1, 100),
                 ],
             ]);
 
