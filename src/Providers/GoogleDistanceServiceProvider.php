@@ -27,7 +27,7 @@ class GoogleDistanceServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton(DistanceApi::class, function (Container $app) {
+        $this->app->singleton('distance', function (Container $app) {
             return new DistanceApi($app['config']['distance.api_key']);
         });
     }
