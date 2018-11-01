@@ -8,6 +8,6 @@ class GoogleDistance extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'distance';
+        return 'google-distance';
     }
 }
