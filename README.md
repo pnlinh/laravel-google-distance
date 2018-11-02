@@ -11,7 +11,7 @@
 Require this package with composer.
 
 ```bash
-composer require pnlinh/laravel-google-distance:dev-master
+composer require pnlinh/laravel-google-distance
 ```
 
 To publishes config `config/distance.php`, use command:
