@@ -3,8 +3,9 @@
 namespace Pnlinh\GoogleDistance\Providers;
 
 use Illuminate\Contracts\Container\Container;
+use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
-use Pnlinh\GoogleDistance\DistanceApi;
+use Pnlinh\GoogleDistance\GoogleDistance;
 
 class GoogleDistanceServiceProvider extends ServiceProvider
 {
@@ -28,7 +29,12 @@ class GoogleDistanceServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton('google-distance', function (Container $app) {
-            return new DistanceApi($app['config']['distance.api_key']);
+            return new GoogleDistance($app['config']['distance.api_key']);
+        });
+
+        $this->app->booting(function () {
+            $loader = AliasLoader::getInstance();
+            $loader->alias('GoogleDistance', \Pnlinh\GoogleDistance\Facades\GoogleDistance::class);
         });
     }
 }

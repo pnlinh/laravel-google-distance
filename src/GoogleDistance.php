@@ -6,7 +6,7 @@ use Exception;
 use GuzzleHttp\Client;
 use Pnlinh\GoogleDistance\Contracts\DistanceContract;
 
-class DistanceApi implements DistanceContract
+class GoogleDistance implements DistanceContract
 {
     /** @var string */
     private $apiUrl = 'https://maps.googleapis.com/maps/api/distancematrix/json';
@@ -55,7 +55,7 @@ class DistanceApi implements DistanceContract
      *
      * @param $origins
      *
-     * @return \Pnlinh\GoogleDistance\DistanceApi
+     * @return \Pnlinh\GoogleDistance\GoogleDistance
      */
     public function setOrigins($origins): self
     {
@@ -79,7 +79,7 @@ class DistanceApi implements DistanceContract
      *
      * @param $destinations
      *
-     * @return \Pnlinh\GoogleDistance\DistanceApi
+     * @return \Pnlinh\GoogleDistance\GoogleDistance
      */
     public function setDestinations($destinations): self
     {
