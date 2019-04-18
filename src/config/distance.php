@@ -4,5 +4,5 @@
  * Set your google api key.
  */
 return [
-    'api_key' => 'YOUR_GOOGLE_API_KEY',
+    'api_key' => env('GOOGLE_MAPS_DISTANCE_API_KEY'),
 ];

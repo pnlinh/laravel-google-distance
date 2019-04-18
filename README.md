@@ -20,7 +20,11 @@ To publishes config `config/distance.php`, use command:
 php artisan vendor:publish --tag="distance-config"
 ```
 
-To change YOUR_GOOGLE_API_KEY, you set it in `config/distance.php`
+You must set your [Google Maps API Key](https://developers.google.com/maps/documentation/distance-matrix/get-api-key) GOOGLE_MAPS_DISTANCE_API_KEY in your .env file like so:
+
+```bash
+GOOGLE_MAPS_DISTANCE_API_KEY=ThisIsMyGoogleApiKey
+```
 
 ## Usage
 
