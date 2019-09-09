@@ -10,14 +10,15 @@ class TestCase extends \Orchestra\Testbench\TestCase
     {
         parent::setUp();
     }
+
     public function getPackageProviders($app)
     {
         return [
             GoogleDistanceServiceProvider::class,
         ];
     }
+
     public function getEnvironmentSetUp($app)
     {
-
     }
 }
