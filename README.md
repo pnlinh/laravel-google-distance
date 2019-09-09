@@ -38,6 +38,12 @@ $distance = GoogleDistance::calculate('FromAddress', 'To Address');
 $distance = google_distance('From Address', 'To Address');
 ```
 
+## Test
+
+```bash
+composer test
+```
+
 ## Credits
 
 - [Pham Ngoc Linh](https://github.com/pnlinh)
