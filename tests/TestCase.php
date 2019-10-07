@@ -20,5 +20,6 @@ class TestCase extends \Orchestra\Testbench\TestCase
 
     public function getEnvironmentSetUp($app)
     {
+        $app['config']->set('google-distance.api_key', 'foo');
     }
 }
