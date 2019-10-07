@@ -16,9 +16,11 @@ class GoogleDistanceServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->publishes([
-            __DIR__.'/../config/distance.php' => config_path('distance.php'),
-        ], 'distance-config');
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__.'/../config/google-distance.php' => config_path('google-distance.php'),
+            ], 'google-distance');
+        }
     }
 
     /**
@@ -29,7 +31,7 @@ class GoogleDistanceServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton('google-distance', function (Container $app) {
-            return new GoogleDistance($app['config']['distance.api_key']);
+            return new GoogleDistance($app['config']['google-distance.api_key']);
         });
 
         $this->app->booting(function () {

@@ -14,10 +14,10 @@ Require this package with composer.
 composer require pnlinh/laravel-google-distance
 ```
 
-To publishes config `config/distance.php`, use command:
+To publishes config `config/google-distance.php`, use command:
 
 ```bash
-php artisan vendor:publish --tag="distance-config"
+php artisan vendor:publish --tag="google-distance"
 ```
 
 You must set your [Google Maps API Key](https://developers.google.com/maps/documentation/distance-matrix/get-api-key) GOOGLE_MAPS_DISTANCE_API_KEY in your .env file like so:
