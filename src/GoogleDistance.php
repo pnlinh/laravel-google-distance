@@ -20,14 +20,18 @@ class GoogleDistance implements DistanceContract
     /** @var */
     private $destinations;
 
+    /** @var */
+    private $units;
+
     /**
      * DistanceApi constructor.
      *
      * @param $apiKey
      */
-    public function __construct($apiKey)
+    public function __construct($apiKey, $units = 'imperial')
     {
         $this->apiKey = $apiKey;
+        $this->units = $units;
     }
 
     /**
@@ -38,6 +42,30 @@ class GoogleDistance implements DistanceContract
     public function getApiKey()
     {
         return $this->apiKey;
+    }
+
+    /**
+     * Get units.
+     *
+     * @return mixed
+     */
+    public function getUnits()
+    {
+        return $this->units;
+    }
+
+    /**
+     * Set units.
+     *
+     * @param $units
+     *
+     * @return \Pnlinh\GoogleDistance\GoogleDistance
+     */
+    public function setUnits($units): self
+    {
+        $this->units = $units;
+
+        return $this;
     }
 
     /**
@@ -96,14 +124,14 @@ class GoogleDistance implements DistanceContract
      *
      * @return int
      */
-    public function calculate($origins, $destinations): int
+    public function calculate($origins, $destinations, $units_override = false): int
     {
         $client = new Client();
 
         try {
             $response = $client->get($this->apiUrl, [
                 'query' => [
-                    'units'        => 'imperial',
+                    'units'        => $units_override !== false ? $units_override : $this->units,
                     'origins'      => $origins,
                     'destinations' => $destinations,
                     'key'          => $this->getApiKey(),
