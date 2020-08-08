@@ -23,7 +23,7 @@ class GoogleDistance implements GoogleDistanceContract
     /**
      * GoogleDistance constructor.
      *
-     * @param  string  $apiKey
+     * @param string $apiKey
      */
     public function __construct($apiKey)
     {
@@ -53,7 +53,7 @@ class GoogleDistance implements GoogleDistanceContract
     /**
      * Set origins.
      *
-     * @param  string  $origins
+     * @param string $origins
      *
      * @return \Pnlinh\GoogleDistance\GoogleDistance
      */
@@ -77,7 +77,7 @@ class GoogleDistance implements GoogleDistanceContract
     /**
      * Set destinations.
      *
-     * @param  string  $destinations
+     * @param string $destinations
      *
      * @return \Pnlinh\GoogleDistance\GoogleDistance
      */
@@ -91,8 +91,8 @@ class GoogleDistance implements GoogleDistanceContract
     /**
      * Caculate distance from origins to destinations.
      *
-     * @param  string  $origins
-     * @param  string  $destinations
+     * @param string $origins
+     * @param string $destinations
      *
      * @return int
      */
