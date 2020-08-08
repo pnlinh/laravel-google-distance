@@ -4,26 +4,26 @@ namespace Pnlinh\GoogleDistance;
 
 use Exception;
 use GuzzleHttp\Client;
-use Pnlinh\GoogleDistance\Contracts\DistanceContract;
+use Pnlinh\GoogleDistance\Contracts\GoogleDistanceContract;
 
-class GoogleDistance implements DistanceContract
+class GoogleDistance implements GoogleDistanceContract
 {
     /** @var string */
     private $apiUrl = 'https://maps.googleapis.com/maps/api/distancematrix/json';
 
-    /** @var */
+    /** @var string */
     private $apiKey;
 
-    /** @var */
+    /** @var string */
     private $origins;
 
-    /** @var */
+    /** @var string */
     private $destinations;
 
     /**
-     * DistanceApi constructor.
+     * GoogleDistance constructor.
      *
-     * @param $apiKey
+     * @param string $apiKey
      */
     public function __construct($apiKey)
     {
@@ -33,7 +33,7 @@ class GoogleDistance implements DistanceContract
     /**
      * Get API_KEY.
      *
-     * @return mixed
+     * @return string
      */
     public function getApiKey()
     {
@@ -43,7 +43,7 @@ class GoogleDistance implements DistanceContract
     /**
      * Get origins.
      *
-     * @return mixed
+     * @return string
      */
     public function getOrigins()
     {
@@ -53,7 +53,7 @@ class GoogleDistance implements DistanceContract
     /**
      * Set origins.
      *
-     * @param $origins
+     * @param string $origins
      *
      * @return \Pnlinh\GoogleDistance\GoogleDistance
      */
@@ -67,7 +67,7 @@ class GoogleDistance implements DistanceContract
     /**
      * Get destinations.
      *
-     * @return mixed
+     * @return string
      */
     public function getDestinations()
     {
@@ -77,7 +77,7 @@ class GoogleDistance implements DistanceContract
     /**
      * Set destinations.
      *
-     * @param $destinations
+     * @param string $destinations
      *
      * @return \Pnlinh\GoogleDistance\GoogleDistance
      */
@@ -91,8 +91,8 @@ class GoogleDistance implements DistanceContract
     /**
      * Caculate distance from origins to destinations.
      *
-     * @param $origins
-     * @param $destinations
+     * @param string $origins
+     * @param string $destinations
      *
      * @return int
      */
