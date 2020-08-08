@@ -7,8 +7,8 @@ interface GoogleDistanceContract
     /**
      * Calculate distance from origins to destinations.
      *
-     * @param  string  $origins
-     * @param  string  $destinations
+     * @param string $origins
+     * @param string $destinations
      *
      * @return int
      */
