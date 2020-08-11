@@ -11,7 +11,7 @@ if (!function_exists('google_distance')) {
      *
      * @return string
      */
-    function google_distance($origins, $destinations, $units_override=false)
+    function google_distance($origins, $destinations, $units_override = false)
     {
         return GoogleDistance::calculate($origins, $destinations, $units_override);
     }
