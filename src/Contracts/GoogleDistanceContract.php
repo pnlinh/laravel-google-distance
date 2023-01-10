@@ -9,12 +9,13 @@ interface GoogleDistanceContract
     /**
      * Calculate distance from origins to destinations.
      *
-     * @param string $origins
-     * @param string $destinations
+     * @param string      $origins
+     * @param string      $destinations
      * @param string|null $overrideUnits
      *
-     * @return int
      * @throws GuzzleException
+     *
+     * @return int
      */
     public function calculate(string $origins, string $destinations, ?string $overrideUnits = null): int;
 }

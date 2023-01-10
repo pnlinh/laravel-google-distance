@@ -6,8 +6,8 @@ if (!function_exists('google_distance')) {
     /**
      * Helper function.
      *
-     * @param string $origins
-     * @param string $destinations
+     * @param string      $origins
+     * @param string      $destinations
      * @param string|null $overrideUnits
      *
      * @return int
