@@ -4,7 +4,6 @@ namespace Pnlinh\GoogleDistance;
 
 use Exception;
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\GuzzleException;
 use Pnlinh\GoogleDistance\Contracts\GoogleDistanceContract;
 
 class GoogleDistance implements GoogleDistanceContract
@@ -21,7 +20,7 @@ class GoogleDistance implements GoogleDistanceContract
     /** @var string */
     private $destinations;
 
-    /** @var */
+    /** @var string */
     private $units;
 
     /**
@@ -30,7 +29,7 @@ class GoogleDistance implements GoogleDistanceContract
      * @param string $apiKey
      * @param string $units
      */
-    public function __construct($apiKey, $units = 'imperial')
+    public function __construct(string $apiKey, string $units = 'imperial')
     {
         $this->apiKey = $apiKey;
         $this->units = $units;
@@ -41,7 +40,7 @@ class GoogleDistance implements GoogleDistanceContract
      *
      * @return string
      */
-    public function getApiKey()
+    public function getApiKey(): string
     {
         return $this->apiKey;
     }
@@ -49,9 +48,9 @@ class GoogleDistance implements GoogleDistanceContract
     /**
      * Get units.
      *
-     * @return mixed
+     * @return string
      */
-    public function getUnits()
+    public function getUnits(): string
     {
         return $this->units;
     }
@@ -75,7 +74,7 @@ class GoogleDistance implements GoogleDistanceContract
      *
      * @return string
      */
-    public function getOrigins()
+    public function getOrigins(): string
     {
         return $this->origins;
     }
@@ -87,7 +86,7 @@ class GoogleDistance implements GoogleDistanceContract
      *
      * @return GoogleDistance
      */
-    public function setOrigins($origins): self
+    public function setOrigins(string $origins): self
     {
         $this->origins = $origins;
 
@@ -99,7 +98,7 @@ class GoogleDistance implements GoogleDistanceContract
      *
      * @return string
      */
-    public function getDestinations()
+    public function getDestinations(): string
     {
         return $this->destinations;
     }
@@ -111,7 +110,7 @@ class GoogleDistance implements GoogleDistanceContract
      *
      * @return GoogleDistance
      */
-    public function setDestinations($destinations): self
+    public function setDestinations(string $destinations): self
     {
         $this->destinations = $destinations;
 
@@ -119,16 +118,9 @@ class GoogleDistance implements GoogleDistanceContract
     }
 
     /**
-     * Caculate distance from origins to destinations.
-     *
-     * @param string $origins
-     * @param string $destinations
-     * @param string|null $overrideUnits
-     *
-     * @return int
-     * @throws GuzzleException
+     * {@inheritDoc}
      */
-    public function calculate($origins, $destinations, $overrideUnits = null): int
+    public function calculate(string $origins, string $destinations, ?string $overrideUnits = null): int
     {
         $client = new Client();
 

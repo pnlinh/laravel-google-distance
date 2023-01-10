@@ -24,6 +24,7 @@ You must set your [Google Maps API Key](https://developers.google.com/maps/docum
 
 ```bash
 GOOGLE_MAPS_DISTANCE_API_KEY=ThisIsMyGoogleApiKey
+GOOGLE_MAPS_DISTANCE_UNITS=ThisIsUnits
 ```
 
 ## Usage
