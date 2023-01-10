@@ -4,6 +4,7 @@ namespace Pnlinh\GoogleDistance;
 
 use Exception;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 use Pnlinh\GoogleDistance\Contracts\GoogleDistanceContract;
 
 class GoogleDistance implements GoogleDistanceContract
@@ -27,6 +28,7 @@ class GoogleDistance implements GoogleDistanceContract
      * GoogleDistance constructor.
      *
      * @param string $apiKey
+     * @param string $units
      */
     public function __construct($apiKey, $units = 'imperial')
     {
@@ -59,7 +61,7 @@ class GoogleDistance implements GoogleDistanceContract
      *
      * @param $units
      *
-     * @return \Pnlinh\GoogleDistance\GoogleDistance
+     * @return GoogleDistance
      */
     public function setUnits($units): self
     {
@@ -83,7 +85,7 @@ class GoogleDistance implements GoogleDistanceContract
      *
      * @param string $origins
      *
-     * @return \Pnlinh\GoogleDistance\GoogleDistance
+     * @return GoogleDistance
      */
     public function setOrigins($origins): self
     {
@@ -107,7 +109,7 @@ class GoogleDistance implements GoogleDistanceContract
      *
      * @param string $destinations
      *
-     * @return \Pnlinh\GoogleDistance\GoogleDistance
+     * @return GoogleDistance
      */
     public function setDestinations($destinations): self
     {
@@ -121,17 +123,19 @@ class GoogleDistance implements GoogleDistanceContract
      *
      * @param string $origins
      * @param string $destinations
+     * @param string|null $overrideUnits
      *
      * @return int
+     * @throws GuzzleException
      */
-    public function calculate($origins, $destinations, $units_override = false): int
+    public function calculate($origins, $destinations, $overrideUnits = null): int
     {
         $client = new Client();
 
         try {
             $response = $client->get($this->apiUrl, [
                 'query' => [
-                    'units'        => $units_override !== false ? $units_override : $this->units,
+                    'units'        => $overrideUnits ?? $this->units,
                     'origins'      => $origins,
                     'destinations' => $destinations,
                     'key'          => $this->getApiKey(),
