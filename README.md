@@ -1,5 +1,6 @@
 # Google Distance in Laravel
 [![StyleCI](https://github.styleci.io/repos/155349271/shield?branch=master)](https://github.styleci.io/repos/155349271)
+[![Quality Score](https://img.shields.io/scrutinizer/quality/g/pnlinh/laravel-google-distance.svg?style=flat-square)](https://scrutinizer-ci.com/g/pnlinh/laravel-google-distance/)
 
 ## Requirements
 
