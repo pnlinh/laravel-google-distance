@@ -6,10 +6,10 @@ if (!function_exists('google_distance')) {
     /**
      * @author pnlinh
      *
-     * @param $origins
-     * @param $destinations
+     * @param string $origins
+     * @param string $destinations
      *
-     * @return string
+     * @return int
      */
     function google_distance($origins, $destinations, $units_override = false)
     {
