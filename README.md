@@ -48,6 +48,7 @@ composer test
 
 ## Credits
 
-- [Pham Ngoc Linh](https://github.com/pnlinh)
+- [Ngoc Linh Pham](https://github.com/pnlinh)
+- [Przemysław](https://github.com/da-sie)
 
 For more info, please visit https://developers.google.com/maps/documentation/distance-matrix/
